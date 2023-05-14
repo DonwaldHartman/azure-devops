@@ -2,11 +2,17 @@ import React, { useCallback } from 'react';
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 import logo from './azure.svg';
-import term1 from './assets/terminal-1.png';
+import dashboard from './assets/azure-dashboard.png'
+import error from './assets/error.png'
 import term2 from './assets/terminal-2.png';
+import release from './assets/release.png';
+import pipeline from './assets/pipeline.png';
 import azure_icons from './assets/azure-icons.png';
 import './App.css';
 import particlesOptions from "./particles.json";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 
 function App() {
     const particlesInit = useCallback(main => {
@@ -21,20 +27,115 @@ function App() {
 
                 <img src={logo} className="App-logo" alt="logo"/>
                 <h1>Azure Devops</h1>
-                <img src={azure_icons} className="" alt="logo"/>
-<p> I created this page and Big Friendly Button as a way to show off tools and techniques that I have learned in Devops and GitOps, and the hardest part is showing off.
-Since all the proccesses that went into creating this is all working hard in the background in containers and repositories its hard to show off what went into it all. 
-This page is running on nginx-fpm inside of kubernetes on a Linode instance, the containers built with ArgoCD and the code served from Github , all being monitored on Grafana with Prometheus as its Datasource, and still the most impressive thing is the colour palleted chosen for the particle js floating in the background. </p>
-<img src={term1} className="term1" alt="terminal"/>
-<p>The approach I took in building this was at first planned to be a Devops instance, with Jenkins serving as the CI/CD pipeline. the code on Github and the services on Kubernetes but I wanted something to be up and running, precise and concise and easy to deploy and troubleshoot and thats why I chose the GitOps route.</p>
+                <p className='Hero'><img src={azure_icons} className="" alt="logo"/></p>
+<p> Welcome to my first venture into Azure Devops and React JS. Two milestones at once! The reason why I have used Azure Devops was to look into the work processes of building and deploying an app with Azure Devops. Using React was to see what native tools were available with Azure Devops to build a React App. </p>
+<Popup
+    trigger={<img src={dashboard} className="term2"  alt="dashboard"/>}
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="header"> Azure Devops Dashboard</div>
+        <div className="content">
+        <img src={dashboard} alt="dashboard"/>
+        </div>
+      </div>
+    )}
+  </Popup>
+<p>I created a free tier Azure Devops account and started looking at the boards and repo for it. It is very centralised when it comes to workflow as every aspect of a project can be used in Azure Devops frorm the planning, team configurations, code hosting, pipelines and artifact storage and deployment. </p>
+<hr></hr>
+<h3>First Complications</h3>
+<p>During my first pipleline build attempt I ran into an issue where I could not run any pipelines as my account had No hosted parallelism purchased or granted. Luckily I found a way to use my own VPS for the pipeline runners and deployment group. Self-hosted Servers for the win </p>
 
-<p>Usually these projects would be hosted off a cheap or free AWS or Google Cloud platform but I chose Linode because when in doubt , use what you know best, and a bare bones Ubuntu server is what I know best. 14 years working with linux and Ubuntu specifically makes deploying apps off bare bones servers pretty much childs play. </p>
-<img src={term2} className="term2" alt="terminal"/>
-<p>Now one last feature that I had to unfortunately drop was a JS - Git integration that would allow a user to press a button, push a change to Github and rebuild everything. The security risks behind was not worth it. </p>
+<section className='twoImages'>
+    
+<Popup
+    trigger={ <img src={error} className="term2" alt="terminal"/>}
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="header"> Azure Devops Dashboard</div>
+        <div className="content">
+        <img src={error} className="term2" alt="terminal"/>
+        </div>
+      </div>
+    )}
+  </Popup>
 
-<p>I will keep this page us as long as my Linode subscription lasts , but changes will be made and development will continue and so say all of us.</p>
+  <Popup
+    trigger={ <img src={term2} className="term2" alt="terminal"/>}
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="header"> Azure Devops Dashboard</div>
+        <div className="content">
+        <img src={term2} className="term2" alt="terminal"/>
+        </div>
+      </div>
+    )}
+  </Popup>
+    
+  </section>
+<hr></hr>
+ <h3>Builds and Pipelines</h3> 
+<p>After configuring my runners and deployment pool, creating pipelines and deploying a build was pretty easy as Azure Devops provides an array of yaml configs for various technologies being deployed. In this case a React app was being deployed and the only change in the config yaml that was needed was changing from Azures VM to my selfhosted runner. A few clicks later the code had been build and stored as an artifact. In the release stage, the configuratio is set in a way that its simple to deply my artifacts to a live server</p>
+<section className='twoImages'>
+    
+<Popup
+    trigger={ <img src={pipeline} className="term2" alt="terminal"/>}
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="header">Pipeline</div>
+        <div className="content">
+        <img src={pipeline} className="term2" alt="terminal"/>
+        </div>
+      </div>
+    )}
+  </Popup>
 
-               
+  <Popup
+    trigger={ <img src={release} className="term2" alt="terminal"/>}
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="header"> Release</div>
+        <div className="content">
+        <img src={release} className="term2" alt="terminal"/>
+        </div>
+      </div>
+    )}
+  </Popup>
+    
+  </section>
+  <hr></hr>
+  <h3>Final Thoughts</h3>
+<p>Azure Devops for a beginner is a very powerful and easy to use, CI/CD solution. Better yet as a Devops tool, its powerful, as it integrates the agile worfklow, code repositories, build piplines and artifact storage so easily, that I would suggest Azure Devops to be used by companies and individuals who need a stable and easy to use, easy to maintain Devops CI/CD solution. </p>
+
             </header>
             </div>
         </div>

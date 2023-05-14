@@ -5,6 +5,34 @@
     padding: 3%;
 }
 
+.App img:hover {
+
+    cursor: pointer;
+}
+
+.twoImages img{
+width:48%;
+margin:1%;
+}
+
+.twoImages img:hover{
+    cursor: pointer;
+}
+
+
+.Hero 
+{
+text-align: center;
+margin: 15px 0;
+}
+
+.Hero img {width: 45%;}
+
+.App-header h1 {
+
+    font-size: 3em;
+}
+
 .App-logo {
     pointer-events: none;
     top: -71px;
@@ -23,7 +51,7 @@
 
 .term2 {
     
-    pointer-events: none;
+    cursor: pointer;
     text-align: center;
     box-shadow: 0 0 8px 3px #000;
 }
@@ -56,9 +84,70 @@
     text-align: justify;
     padding: 15px
     }
+.Container h3 {
 
+    margin: 10px 0;
+    text-align: center;
+}
 
     .Container h1{ text-align: center;}
+
+    .popup-content {
+        margin: auto;
+        background: #093365 !important;
+        width: 85% !important;
+        padding: 5px;
+        border: 1px solid #d7d7d7;
+    }
+    .modal {
+        font-size: 12px;
+      }
+    
+      .modal img {    
+        width: 97%;
+        margin: 1%;}
+
+
+      .modal > .header {
+        width: 100%;
+        border-bottom: 1px solid gray;
+        font-family: 'Tilt Neon', cursive;
+        font-size: 18px;
+        text-align: center;
+        padding: 5px;
+        color: #fff;
+      }
+      .modal > .content {
+        width: 100%;
+        padding: 10px 5px;
+      }
+      .modal > .actions {
+        width: 100%;
+        padding: 10px 5px;
+        margin: auto;
+        text-align: center;
+      }
+      .modal > .close {
+        cursor: pointer;
+        position: absolute;
+        display: block;
+        padding: 2px 5px;
+        line-height: 20px;
+        right: -10px;
+        top: -10px;
+        font-size: 24px;
+        background: #fff;
+        border-radius: 18px;
+        border: 1px solid #cfcece;
+      }
+
+
+      hr {
+        border: 0; 
+        height: 3px; 
+        width: 100%;
+        background-image: linear-gradient(to right, #ffffff14, #0e49ba, #0e49ba, #ffffff14);
+      }
 
 .App-link {
     color: #61dafb;

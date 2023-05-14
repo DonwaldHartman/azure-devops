@@ -20,5 +20,5 @@ steps:
 - script: |
     npm install
     npm run build
-    pm2 start --name portfolio npm -- start 
+    export PORT=8080 && pm2 start --name portfolio npm -- start 
   displayName: 'npm install and build'

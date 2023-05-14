@@ -20,4 +20,6 @@ steps:
 - script: |
     npm install
     npm run build
+    npm install -g serve
+    server -s build 
   displayName: 'npm install and build'
